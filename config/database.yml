@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  pool: 5
+  port: 5432
+  username: <%= ENV['ZOO-TWITTER_DATABASE_USERNAME'] %>
+  password: <%= ENV['ZOO-TWITTER_DATABASE_PASSWORD'] %>
+  encoding: utf8
+
+development:
+  <<: *default
+  database: zoo-twitter
+
+test:
+  <<: *default
+  database: zoo-twitter-test
+
+production:
+  <<: *default
+  database: zoo-twitter
