@@ -1,15 +1,15 @@
+.inside
+	.shadow
 .container
-	h2 Log in
-	= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-		.col-xs-12.col-sm-4
-			= f.input :username, autofocus: true
-		.clearfix
-		.col-xs-12.col-sm-4
-			= f.input :password, autocomplete: "off"
-		.clearfix
-		- if devise_mapping.rememberable?
-			.col-xs-12.col-sm-4
+	.col-xs-12.col-sm-4.col-sm-offset-8.block#login
+		= simple_form_for(User.new, as: :user, url: session_path(:user)) do |f|
+			.col-xs-12
+				p Ошибка авторизации, попробуйте еще раз
+			.col-xs-12
+				= f.input :username, autofocus: true, label: false
+			.col-xs-8
+				= f.input :password, autocomplete: 'off', label: false
+			.col-xs-4
+				= f.button :submit, 'Вход', class: 'btn btn-primary'
+			.col-xs-12
 				= f.input :remember_me, as: :boolean, label: 'Запомнить'
-			.clearfix
-		.col-xs-12.col-sm-4
-			= f.button :submit, "Log in"

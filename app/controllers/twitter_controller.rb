@@ -1,8 +1,11 @@
 class TwitterController < ApplicationController
-	before_action :authenticate_user!
 
 	def index
-
+		if current_user
+			render template:"twitter/index"
+		else
+			render template:"twitter/welcome"
+		end
 	end
 
 	def account
