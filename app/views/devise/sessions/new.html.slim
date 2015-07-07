@@ -1,0 +1,15 @@
+.container
+	h2 Log in
+	= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+		.col-xs-12.col-sm-4
+			= f.input :username, autofocus: true
+		.clearfix
+		.col-xs-12.col-sm-4
+			= f.input :password, autocomplete: "off"
+		.clearfix
+		- if devise_mapping.rememberable?
+			.col-xs-12.col-sm-4
+				= f.input :remember_me, as: :boolean, label: 'Запомнить'
+			.clearfix
+		.col-xs-12.col-sm-4
+			= f.button :submit, "Log in"

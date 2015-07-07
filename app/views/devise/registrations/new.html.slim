@@ -1,0 +1,20 @@
+.container
+	h2 Sign up
+	= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+		= devise_error_messages!
+		.col-xs-12.col-sm-4
+			= f.input :username, required: true, autofocus: true, label: 'Логин'
+		.clearfix
+		.col-xs-12.col-sm-4
+			= f.input :email, required: true, label: 'Электронная почта'
+		.clearfix
+		.col-xs-12.col-sm-4
+			= f.input :password, required: true
+			- if @minimum_password_length
+				em= "(" + @minimum_password_length.to_s +  " characters minimum)"
+		.clearfix
+		.col-xs-12.col-sm-4
+			= f.input :password_confirmation, autocomplete: "off", required: true
+		.clearfix
+		.col-xs-12.col-sm-4
+			=  f.button :submit, "Sign up"

@@ -1,0 +1,11 @@
+ru:
+  activerecord:
+    models:
+      users: 'Пользователи'
+    attributes:
+      username: 'Логин'
+      email: 'Электронная почта'
+      password: 'Пароль'
+    errors:
+      messages:
+        blank: "Поле не должно быть пустым"
