@@ -10,5 +10,9 @@
 					p Служебный блок
 			.col-xs-8.col-md-6.well
 				p Лента своих собственных твитов
+				- @tweets.each do |tweet|
+					p= tweet.text
+				- if @tweets.length == 0
+					p Твитов пока нет
 			.col-xs-4.col-md-3.well.visible-md.visible-lg
 				p Служебный блок
