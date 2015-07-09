@@ -1,2 +1,14 @@
 = render 'layouts/menu'
-h1 Twitter#index
+#inside
+	.container
+		.row
+			.col-xs-4.col-md-3
+				.col-xs-12.well
+					h3= link_to current_user.username, account_path(current_user.username)
+					p= link_to "@#{current_user.username}", account_path(current_user.username)
+				.col-xs-12.well.visible-xs.visible-sm
+					p Служебный блок
+			.col-xs-8.col-md-6.well
+				p Лента твитов
+			.col-xs-4.col-md-3.well.visible-md.visible-lg
+				p Служебный блок
