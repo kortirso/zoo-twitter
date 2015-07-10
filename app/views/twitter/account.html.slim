@@ -8,11 +8,13 @@
 					p= link_to "@#{current_user.username}", account_path(current_user.username)
 				.col-xs-12.well.visible-xs.visible-sm
 					p Служебный блок
-			.col-xs-8.col-md-6.well
-				p Лента своих собственных твитов
-				- @tweets.each do |tweet|
-					p= tweet.text
-				- if @tweets.length == 0
-					p Твитов пока нет
-			.col-xs-4.col-md-3.well.visible-md.visible-lg
-				p Служебный блок
+			.col-xs-8.col-md-6
+				.well
+					p Лента своих собственных твитов
+					- @tweets.each do |tweet|
+						p= tweet.text
+					- if @tweets.length == 0
+						p Твитов пока нет
+			.col-xs-4.col-md-3.visible-md.visible-lg
+				.well
+					p Служебный блок
