@@ -9,7 +9,7 @@
 				.col-xs-12.well.visible-xs.visible-sm
 					p Служебный блок
 			.col-xs-8.col-md-6#lenta
-				= simple_form_for @tweet do |f| #, remote: true добавить потом
+				= simple_form_for @tweet, remote: true do |f|
 					= f.input :text, autofocus: true, label: false, id: 'tweet_text', input_html: { maxlength: 140 }
 					= f.button :submit, 'Рявкнуть', class: 'btn btn-success disabled', id: 'add_tweet'
 					span#counter 140
@@ -20,7 +20,7 @@
 							= link_to "@#{tweet.user.username}", account_path(tweet.user.username)
 						p= tweet.text
 				- if @tweets.length == 0
-					.tweet
+					.tweet#no_tweets
 						p Твитов пока нет
 			.col-xs-4.col-md-3.visible-md.visible-lg.box
 				.users

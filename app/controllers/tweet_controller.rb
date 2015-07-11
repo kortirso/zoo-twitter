@@ -4,9 +4,11 @@ class TweetController < ApplicationController
 		@tweet.user_id = current_user.id
 		respond_to do |format|
 			if @tweet.save
-				format.html { redirect_to tweets_path }
+				user = User.find(current_user)
+				user.update_attribute('tweets_counter', user.tweets_counter + 1)
+				format.js
 			else
-				format.html { redirect_to tweets_path }
+				format.js
 			end
 		end
 	end

@@ -1,0 +1,5 @@
+.tweet
+	p
+		= @tweet.user.username
+		= link_to "@#{@tweet.user.username}", account_path(@tweet.user.username)
+	p= @tweet.text

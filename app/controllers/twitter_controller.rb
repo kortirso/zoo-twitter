@@ -27,6 +27,6 @@ class TwitterController < ApplicationController
 
 	private
 		def get_users
-			@users = User.order(tweets_counter: :desc).limit(20)
+			@users = User.order(tweets_counter: :desc).limit(10)
 		end
 end

@@ -1,0 +1,5 @@
+$('#new_tweet').after("<%= j render(partial: 'tweet/new', object: @tweet) %>");
+$('#tweet_text').val("");
+$('#counter').html('140');
+$('#add_tweet').addClass('disabled');
+$('#no_tweets').remove();
