@@ -6,8 +6,8 @@
 				.col-xs-12.well
 					h3= link_to current_user.username, account_path(current_user.username)
 					p= link_to "@#{current_user.username}", account_path(current_user.username)
-				.col-xs-12.well.visible-xs.visible-sm
-					p Служебный блок
+				.col-xs-12.well.visible-xs.visible-sm.box
+					= render 'twitter/users'
 			.col-xs-8.col-md-6#lenta
 				= simple_form_for @tweet, remote: true do |f|
 					= f.input :text, autofocus: true, label: false, id: 'tweet_text', input_html: { maxlength: 140 }
@@ -23,10 +23,4 @@
 					.tweet#no_tweets
 						p Твитов пока нет
 			.col-xs-4.col-md-3.visible-md.visible-lg.box
-				.users
-					h4 Самые твитящие особи
-					- @users.each do |user|
-						p
-							= user.username
-							= link_to "@#{user.username}", account_path(user.username)
-							= " - #{user.tweets_counter}"
+				= render 'twitter/users'
