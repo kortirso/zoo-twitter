@@ -8,9 +8,12 @@ html, body
 	margin: 0
 	padding: 0
 
+html
+	body
+		background: #ABB8C1
+
 body
 	position: relative
-
 	font-size: 20px
 
 	.block
@@ -53,12 +56,39 @@ body
 		height: 100%
 
 nav
-	background: #CCC
+	background: #FFF
 
 #inside
 	position: relative
 	top: 50px
 	margin-top: 10px
 
-#tweet_text
-	resize: none
+#lenta
+	padding: 0
+	border-radius: 5px
+	overflow: hidden
+
+	#new_tweet
+		padding: 10px
+		background: #eff6ee
+
+	#tweet_text
+		resize: none
+		height: 80px
+		&:focus
+			box-shadow: none
+			border-color: #AAA
+
+	#counter
+		margin-left: 5px
+
+	.tweet
+		padding: 10px
+		background: #FFF
+		border-top: 1px solid #CCC
+
+.users
+	padding: 10px
+	background: #FFF
+	border-radius: 5px
+	overflow: hidden

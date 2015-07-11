@@ -8,13 +8,21 @@
 					p= link_to "@#{current_user.username}", account_path(current_user.username)
 				.col-xs-12.well.visible-xs.visible-sm
 					p Служебный блок
-			.col-xs-8.col-md-6
-				.well
-					p Лента своих собственных твитов
-					- @tweets.each do |tweet|
+			.col-xs-8.col-md-6#lenta
+				- @tweets.each do |tweet|
+					.tweet
+						p
+							= tweet.user.username
+							= link_to "@#{tweet.user.username}", account_path(tweet.user.username)
 						p= tweet.text
-					- if @tweets.length == 0
+				- if @tweets.length == 0
+					.tweet
 						p Твитов пока нет
-			.col-xs-4.col-md-3.visible-md.visible-lg
-				.well
-					p Служебный блок
+			.col-xs-4.col-md-3.visible-md.visible-lg.box
+				.users
+					h4 Самые твитящие особи
+					- @users.each do |user|
+						p
+							= user.username
+							= link_to "@#{user.username}", account_path(user.username)
+							= " - #{user.tweets_counter}"
