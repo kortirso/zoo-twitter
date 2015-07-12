@@ -1,8 +1,7 @@
 .users
-	h4 Самые твитящие особи
+	h4= t('index.main_users')
 	- @users.each do |user|
 		p
 			= user.username
 			= link_to "@#{user.username}", account_path(user.username)
 			= " - #{user.tweets_counter}"
-			

@@ -5,7 +5,11 @@ nav.navbar.navbar-fixed-top role="navigation"
 			span.icon-bar
 			span.icon-bar
 			span.icon-bar
+	.pull-right
+		= link_to 'ENG', change_locale_path('en'), class: 'btn btn-sm btn-primary'
+		= link_to 'RUS', change_locale_path('ru'), class: 'btn btn-sm btn-primary'
+		= link_to t('welcome.exit'), destroy_user_session_path, method: :delete, class: 'btn btn-sm btn-danger'
 	.navbar-collapse.collapse
 		ul.nav.navbar-nav
 			li
-				a href="/"  Главная
+				= link_to t('welcome.main'), tweets_path

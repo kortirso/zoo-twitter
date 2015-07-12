@@ -4,26 +4,26 @@
 	.col-xs-12.col-sm-6.col-sm-offset-3.col-md-4.col-md-offset-8.block#login
 		= simple_form_for(User.new, as: :user, url: session_path(:user)) do |f|
 			.col-xs-12
-				p Авторизация
+				p= t('welcome.auth')
 			.col-xs-12
 				= f.input :username, autofocus: true, label: false
 			.col-xs-8
 				= f.input :password, autocomplete: 'off', label: false
 			.col-xs-4
-				= f.button :submit, 'Вход', class: 'btn btn-primary'
+				= f.button :submit, t('welcome.enter'), class: 'btn btn-primary'
 			.col-xs-12
-				= f.input :remember_me, as: :boolean, label: 'Запомнить'
+				= f.input :remember_me, as: :boolean, label: t('welcome.remember')
 	.col-xs-12.col-sm-6.col-sm-offset-3.col-md-4.col-md-offset-8.block#signup
 		= simple_form_for(User.new, as: :user, url: registration_path(:user)) do |f|
 			.col-xs-12
-				p Регистрация
+				p= t('welcome.reg')
 			.col-xs-12
-				= f.input :username, required: true, autofocus: true, label: false, placeholder: 'Введите логин'
+				= f.input :username, required: true, autofocus: true, label: false, placeholder: t('welcome.username')
 			.col-xs-12
-				= f.input :email, required: true, label: false, placeholder: 'Введите электронную почту'
+				= f.input :email, required: true, label: false, placeholder: t('welcome.email')
 			.col-xs-12
-				= f.input :password, required: true, label: false, placeholder: 'Введите пароль (минимум 8 символов)'
+				= f.input :password, required: true, label: false, placeholder: t('welcome.password')
 			.col-xs-12
-				= f.input :password_confirmation, autocomplete: 'off', required: true, label: false, placeholder: 'Повторите пароль'
+				= f.input :password_confirmation, autocomplete: 'off', required: true, label: false, placeholder: t('welcome.confirm')
 			.col-xs-12.col-sm-5.col-sm-offset-7
-				=  f.button :submit, 'Регистрация', class: 'btn btn-primary'
+				=  f.button :submit, t('welcome.reg'), class: 'btn btn-primary'

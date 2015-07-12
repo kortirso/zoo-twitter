@@ -25,6 +25,11 @@ class TwitterController < ApplicationController
 		end
 	end
 
+	def locale
+		params[:name] == 'ru' ? session[:locale] = 'ru' : session[:locale] = 'en'
+		redirect_to tweets_path
+	end
+
 	private
 		def get_users
 			@users = User.order(tweets_counter: :desc).limit(10)

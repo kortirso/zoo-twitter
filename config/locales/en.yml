@@ -1,4 +1,4 @@
-ru:
+en:
   activerecord:
     models:
       users: 'Users'
@@ -8,4 +8,22 @@ ru:
       password: 'Passsword'
     errors:
       messages:
-        blank: "Must be not empty"
+        blank: 'Must be not empty'
+
+  welcome:
+    auth: 'Sign in'
+    reg: 'Sign up'
+    enter: 'Login'
+    exit: 'Exit'
+    remember: 'Remember'
+    username: 'Enter your login'
+    email: 'Enter your email'
+    password: 'Enter your password (minimum 8 characters)'
+    confirm: 'Confirm password'
+    main: 'Main page'
+
+  index:
+    tweet: 'What is going on?'
+    add: 'Roaring'
+    no_tweets: 'No tweets now'
+    main_users: 'The most tweeting individuals'
