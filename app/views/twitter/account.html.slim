@@ -3,21 +3,20 @@
 	.container
 		.row
 			.col-xs-4.col-md-3
-				.col-xs-12.well
-					h3= link_to current_user.username, account_path(current_user.username)
-					p= link_to "@#{current_user.username}", account_path(current_user.username)
-				.col-xs-12.well.visible-xs.visible-sm.box
+				.box
+					= render 'twitter/current'
+				.visible-xs.visible-sm.box
 					= render 'twitter/users'
 			.col-xs-8.col-md-6#lenta
 				- @tweets.each do |tweet|
 					.tweet
 						p
+							= image_tag 'avatar.jpg', class: 'img-responsive avatar_img', alt: 'avatar'
 							= tweet.user.username
 							= link_to "@#{tweet.user.username}", account_path(tweet.user.username)
 						p= tweet.text
 				- if @tweets.length == 0
 					.tweet
-						p Твитов пока нет
+						p= t('index.no_tweets')
 			.col-xs-4.col-md-3.visible-md.visible-lg.box
 				= render 'twitter/users'
-				

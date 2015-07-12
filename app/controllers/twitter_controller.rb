@@ -3,6 +3,7 @@ class TwitterController < ApplicationController
 
 	def index
 		if current_user
+			@user = User.find(current_user)
 			@tweets = Tweet.where('user_id = ?', current_user).order(id: :desc)
 			@tweet = Tweet.new
 			render template: 'twitter/index'
@@ -13,9 +14,9 @@ class TwitterController < ApplicationController
 
 	def account
 		if current_user
-			user = User.where('username = ?', params[:username]).first
-			if user
-				@tweets = Tweet.where(user_id: user).order(id: :desc)
+			@user = User.where('username = ?', params[:username]).first
+			if @user
+				@tweets = Tweet.where(user_id: @user).order(id: :desc)
 				render template: 'twitter/account'
 			else
 				render template: "layouts/403", status: 404

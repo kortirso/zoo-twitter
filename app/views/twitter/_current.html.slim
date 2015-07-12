@@ -1,0 +1,10 @@
+.account
+	.avatar
+		= image_tag 'avatar.jpg', class: 'img-responsive big_avatar_img', alt: 'avatar'
+	.account_links
+		h3= link_to @user.username, account_path(@user.username)
+		= link_to "@#{@user.username}", account_path(@user.username)
+	.account_info
+		.tweet-count
+			p#count= t('welcome.count')
+			p= @user.tweets_counter

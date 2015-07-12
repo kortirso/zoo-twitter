@@ -21,6 +21,7 @@ en:
     password: 'Enter your password (minimum 8 characters)'
     confirm: 'Confirm password'
     main: 'Main page'
+    count: 'tweets'
 
   index:
     tweet: 'What is going on?'
