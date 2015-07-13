@@ -28,3 +28,5 @@ en:
     add: 'Roaring'
     no_tweets: 'No tweets now'
     main_users: 'The most tweeting individuals'
+    follow: 'Follow'
+    unfollow: 'Unfollow'

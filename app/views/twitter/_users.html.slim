@@ -1,7 +1,19 @@
 .users
 	h4= t('index.main_users')
 	- @users.each do |user|
-		p
-			= user.username
-			= link_to "@#{user.username}", account_path(user.username)
-			= " - #{user.tweets_counter}"
+		- if user.id != current_user.id
+			.user
+				p
+					= image_tag 'avatar.jpg', class: 'img-responsive avatar_img', alt: 'avatar'
+					= user.username
+					= link_to "@#{user.username}", account_path(user.username)
+					= " - #{user.tweets_counter}"
+					p
+						- friends = Relationship.where(follower_id: current_user, followed_id: user).first
+						- if friends
+							= form_for(current_user.relationships.find_by(followed_id: user), html: { method: :delete }, remote: true) do |f|
+								= f.submit t('index.unfollow'), class: 'btn btn-sm btn-warning'
+						- else
+							= form_for(current_user.relationships.build(followed_id: user.id), remote: true) do |f|
+								= f.hidden_field :followed_id
+								= f.submit t('index.follow'), class: 'btn btn-sm btn-primary'

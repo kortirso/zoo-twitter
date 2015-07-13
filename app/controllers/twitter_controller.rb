@@ -4,7 +4,7 @@ class TwitterController < ApplicationController
 	def index
 		if current_user
 			@user = User.find(current_user)
-			@tweets = Tweet.where('user_id = ?', current_user).order(id: :desc)
+			@tweets = Tweet.from_users_followed_by(@user).order(id: :desc)
 			@tweet = Tweet.new
 			render template: 'twitter/index'
 		else
