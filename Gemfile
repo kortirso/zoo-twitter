@@ -23,6 +23,7 @@ gem 'http_accept_language'
 group :test do
 	gem 'rspec-rails'
 	gem 'factory_girl_rails'
+	gem 'capybara'
 end
 
 group :development, :test do
