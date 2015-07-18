@@ -59,6 +59,25 @@ body
 nav
 	background: #FFF
 
+	&.navbar
+		border-bottom: 1px solid #5cb85c
+
+	.navbar-nav > li > a
+		@media (max-width: 767px)
+			padding-top: 15px
+			padding-bottom: 15px
+
+	.navbar-nav
+		@media (max-width: 767px)
+			float: left
+			margin: 0
+
+	.pull-right
+		margin: 10px 10px 0 0
+
+		.btn
+			margin-left: 5px
+
 #inside
 	position: relative
 	top: 50px
@@ -68,13 +87,19 @@ nav
 	margin-bottom: 10px
 
 #lenta
-	padding: 0
+	padding: 0 0 15px
 	border-radius: 5px
 	overflow: hidden
+
+	@media (max-width: 767px)
+		padding: 0 15px 15px
 
 	#new_tweet
 		padding: 10px
 		background: #eff6ee
+
+		@media (max-width: 767px)
+			border-radius: 5px 5px 0 0
 
 	#tweet_text
 		resize: none
@@ -90,6 +115,9 @@ nav
 		padding: 10px
 		background: #FFF
 		border-top: 1px solid #CCC
+
+		&:last-child
+			border-radius: 0 0 5px 5px
 
 		p
 			padding-left: 60px
@@ -143,6 +171,10 @@ nav
 	padding: 10px 0
 	background: #FFF
 	margin-bottom: 10px
+
+	@media (max-width: 767px)
+		width: 50%
+		float: left
 
 	p
 		padding-left: 60px

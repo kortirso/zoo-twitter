@@ -3,12 +3,12 @@
 #inside
 	.container
 		.row
-			.col-xs-4.col-md-3
+			.col-xs-12.col-md-3
 				.box
 					= render 'twitter/current'
 				.visible-xs.visible-sm.box
 					.user_block= render 'twitter/users'
-			.col-xs-8.col-md-6#lenta
+			.col-xs-12.col-md-6#lenta
 				= simple_form_for @tweet, remote: true do |f|
 					= f.input :text, autofocus: true, label: false, id: 'tweet_text', input_html: { maxlength: 140 }, placeholder: t('index.tweet')
 					= f.button :submit, t('index.add'), class: 'btn btn-success disabled', id: 'add_tweet'
@@ -23,5 +23,5 @@
 				- if @tweets.length == 0
 					.tweet#no_tweets
 						p= t('index.no_tweets')
-			.col-xs-4.col-md-3.visible-md.visible-lg.box
+			.col-xs-12.col-md-3.visible-md.visible-lg.box
 				.user_block= render 'twitter/users'
