@@ -22,6 +22,8 @@ en:
     confirm: 'Confirm password'
     main: 'Main page'
     count: 'tweets'
+    followed: 'followed'
+    followers: 'followers'
 
   index:
     tweet: 'What is going on?'

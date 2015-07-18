@@ -4,6 +4,8 @@ class RelationshipsController < ApplicationController
 	def create
 		@user = User.find(params[:relationship][:followed_id])
 		current_user.follow!(@user)
+		current_user.update_attribute('followed_counter', current_user.followed_counter + 1)
+		@user.update_attribute('followers_counter', @user.followers_counter + 1)
 		respond_to do |format|
 			format.js
 		end
@@ -12,6 +14,8 @@ class RelationshipsController < ApplicationController
 	def destroy
 		@user = Relationship.find(params[:id]).followed
 		current_user.unfollow!(@user)
+		current_user.update_attribute('followed_counter', current_user.followed_counter - 1)
+		@user.update_attribute('followers_counter', @user.followers_counter - 1)
 		respond_to do |format|
 			format.js
 		end

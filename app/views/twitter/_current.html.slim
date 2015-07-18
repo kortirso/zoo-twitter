@@ -6,5 +6,11 @@
 		= link_to "@#{@user.username}", account_path(@user.username)
 	.account_info
 		.tweet-count
-			p#count= t('welcome.count')
+			p.count= t('welcome.count')
 			p= @user.tweets_counter
+		.tweet-count
+			p.count= t('welcome.followed')
+			p= @user.followed_counter
+		.tweet-count
+			p.count= t('welcome.followers')
+			p= @user.followers_counter

@@ -22,6 +22,8 @@ ru:
     confirm: 'Повторите пароль'
     main: 'Главная'
     count: 'твиты'
+    followed: 'читаемые'
+    followers: 'читатели'
 
   index:
     tweet: 'Что происходит?'
