@@ -11,9 +11,9 @@
 					p
 						- friends = Relationship.where(follower_id: current_user, followed_id: user).first
 						- if friends
-							= form_for(current_user.relationships.find_by(followed_id: user), html: { method: :delete }, remote: true) do |f|
-								= f.submit t('index.unfollow'), class: 'btn btn-sm btn-warning'
+							= simple_form_for current_user.relationships.find_by(followed_id: user), html: { method: :delete }, remote: true do |f|
+								= f.button :submit, t('index.unfollow'), class: 'btn btn-sm btn-warning', id: "form_#{user.id}"
 						- else
-							= form_for(current_user.relationships.build(followed_id: user.id), remote: true) do |f|
+							= simple_form_for current_user.relationships.build(followed_id: user.id), remote: true do |f|
 								= f.hidden_field :followed_id
-								= f.submit t('index.follow'), class: 'btn btn-sm btn-primary'
+								= f.button :submit, t('index.follow'), class: 'btn btn-sm btn-primary', id: "form_#{user.id}"

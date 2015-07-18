@@ -1,4 +1,6 @@
 class RelationshipsController < ApplicationController
+	before_action :get_users
+
 	def create
 		@user = User.find(params[:relationship][:followed_id])
 		current_user.follow!(@user)
@@ -14,4 +16,9 @@ class RelationshipsController < ApplicationController
 			format.js
 		end
 	end
+
+	private
+		def get_users
+			@users = User.order(tweets_counter: :desc).limit(10)
+		end
 end

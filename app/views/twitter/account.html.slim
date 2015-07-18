@@ -7,7 +7,7 @@
 				.box
 					= render 'twitter/current'
 				.visible-xs.visible-sm.box
-					= render 'twitter/users'
+					.user_block= render 'twitter/users'
 			.col-xs-8.col-md-6#lenta
 				- @tweets.each do |tweet|
 					.tweet
@@ -20,4 +20,4 @@
 					.tweet
 						p= t('index.no_tweets')
 			.col-xs-4.col-md-3.visible-md.visible-lg.box
-				= render 'twitter/users'
+				.user_block= render 'twitter/users'
