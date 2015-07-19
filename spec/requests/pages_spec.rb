@@ -2,7 +2,7 @@ describe 'Pages' do
 
 	describe 'Welcome page' do
 		before { visit tweets_path }
-
+		
 		it 'should have the title Welcome' do
 			expect(page).to have_title('Welcome')
 		end
@@ -23,15 +23,18 @@ describe 'Pages' do
 				end
 				click_button 'authorization'
 			end
+
 			it 'after login should have the title Home' do
 				expect(page).to have_title('Home')
 			end
 		end
 
 		describe 'with invalid sign up information' do
+
 			it 'should not create a user' do
 				expect { click_button 'registration' }.not_to change(User, :count)
 			end
+
 			it 'should redirect to registration page' do
 				click_button 'registration'
 				expect(page).to have_title('Registration')
@@ -54,7 +57,7 @@ describe 'Pages' do
 
 			describe 'after saving the user' do
 				before { click_button 'registration' }
-				let(:user) { User.find_by(email: 'test@gmail.com') }
+				let(:user) { User.find_by(username: 'Tester') }
 
 				it 'shoult have the title Home' do
 					expect(page).to have_title('Home')
@@ -73,6 +76,14 @@ describe 'Pages' do
 		it 'should have the title Home' do
 			expect(page).to have_title('Home')
 		end
+
+		describe 'after Exit button click' do
+			it 'should logout and redirect to Welcome Page' do
+				click_link 'destroy'
+				logout(:user)
+				expect(page).to have_title('Welcome')
+			end
+		end
 	end
 
 	describe 'Account page' do
@@ -86,4 +97,5 @@ describe 'Pages' do
 			expect(page).to have_title('Account')
 		end
 	end
+
 end

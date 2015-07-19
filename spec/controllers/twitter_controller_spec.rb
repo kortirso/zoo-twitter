@@ -32,4 +32,11 @@ RSpec.describe TwitterController, type: :controller do
 		end
 	end
 
+	describe 'GET #locale' do
+		it 'redirect to root' do
+			get :locale, name: 'ru'
+			expect(response).to redirect_to tweets_path
+		end
+	end
+
 end
