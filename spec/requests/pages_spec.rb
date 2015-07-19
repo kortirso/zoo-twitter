@@ -7,28 +7,34 @@ describe 'Pages' do
 			expect(page).to have_title('Welcome')
 		end
 
-		describe 'with invalid sign up information' do
-			it 'should not create a user' do
-				expect { click_button 'registration' }.not_to change(User, :count)
+		describe 'with invalid login information' do
+			it 'should redirect to authorization page' do
+				click_button 'authorization'
+				expect(page).to have_title('Authorization')
 			end
 		end
 
 		describe 'with valid login information' do
+			let(:user) { create(:user) }
 			before do
 				within('#login') do
-					fill_in 'user_username', with: 'tester'
-					fill_in 'user_password', with: 'password'
+					fill_in 'user_username', with: user.username
+					fill_in 'user_password', with: user.password
 				end
+				click_button 'authorization'
 			end
+			it 'after login should have the title Home' do
+				expect(page).to have_title('Home')
+			end
+		end
 
-			describe 'after login of the user' do
-				before { click_button 'authorization' }
-				#let(:user) { create(:user, username: 'tester') }
-				#let(:user) { User.find_by(username: 'tester') }
-
-				it 'shoult have the title Home' do
-					#expect(page).to have_title('Home')
-				end
+		describe 'with invalid sign up information' do
+			it 'should not create a user' do
+				expect { click_button 'registration' }.not_to change(User, :count)
+			end
+			it 'should redirect to registration page' do
+				click_button 'registration'
+				expect(page).to have_title('Registration')
 			end
 		end
 
@@ -56,5 +62,4 @@ describe 'Pages' do
 			end
 		end
 	end
-	
 end
