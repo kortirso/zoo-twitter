@@ -62,4 +62,38 @@ describe 'Pages' do
 			end
 		end
 	end
+
+	describe 'Index page' do
+		let(:user) { create(:user) }
+		before do
+			visit tweets_path
+			within('#login') do
+				fill_in 'user_username', with: user.username
+				fill_in 'user_password', with: user.password
+			end
+			click_button 'authorization'
+			visit tweets_path
+		end
+
+		it 'should have the title Home' do
+			expect(page).to have_title('Home')
+		end
+	end
+
+	describe 'Account page' do
+		let(:user) { create(:user) }
+		before do
+			visit tweets_path
+			within('#login') do
+				fill_in 'user_username', with: user.username
+				fill_in 'user_password', with: user.password
+			end
+			click_button 'authorization'
+			visit account_path(user.username)
+		end
+
+		it 'should have the title Account' do
+			expect(page).to have_title('Account')
+		end
+	end
 end
