@@ -66,12 +66,7 @@ describe 'Pages' do
 	describe 'Index page' do
 		let(:user) { create(:user) }
 		before do
-			visit tweets_path
-			within('#login') do
-				fill_in 'user_username', with: user.username
-				fill_in 'user_password', with: user.password
-			end
-			click_button 'authorization'
+			login_as(user, scope: :user)
 			visit tweets_path
 		end
 
@@ -83,12 +78,7 @@ describe 'Pages' do
 	describe 'Account page' do
 		let(:user) { create(:user) }
 		before do
-			visit tweets_path
-			within('#login') do
-				fill_in 'user_username', with: user.username
-				fill_in 'user_password', with: user.password
-			end
-			click_button 'authorization'
+			login_as(user, scope: :user)
 			visit account_path(user.username)
 		end
 

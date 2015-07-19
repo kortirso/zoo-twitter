@@ -33,6 +33,9 @@ RSpec.configure do |config|
 	config.include FactoryGirl::Syntax::Methods
 	config.include Capybara::DSL
 
+	include Warden::Test::Helpers
+	Warden.test_mode!
+
 	# If you're not using ActiveRecord, or you'd prefer not to run each of your
 	# examples within a transaction, remove the following line or assign false
 	# instead of true.
@@ -52,4 +55,8 @@ RSpec.configure do |config|
 	# The different available types are documented in the features, such as in
 	# https://relishapp.com/rspec/rspec-rails/docs
 	config.infer_spec_type_from_file_location!
+
+	config.after :each do
+		Warden.test_reset!
+	end
 end
