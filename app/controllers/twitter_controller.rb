@@ -21,14 +21,22 @@ class TwitterController < ApplicationController
 
 	def following
 		@user = params[:username] ? User.where('username = ?', params[:username]).first : User.find(current_user)
-		@following = @user.followed_users
-		render template: 'twitter/following'
+		if @user
+			@following = @user.followed_users
+			render template: 'twitter/following'
+		else
+			render template: "layouts/403", status: 404
+		end
 	end
 
 	def followers
 		@user = params[:username] ? User.where('username = ?', params[:username]).first : User.find(current_user)
-		@followers = @user.followers
-		render template: 'twitter/followers'
+		if @user
+			@followers = @user.followers
+			render template: 'twitter/followers'
+		else
+			render template: "layouts/403", status: 404
+		end
 	end
 
 	def locale
