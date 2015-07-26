@@ -11,7 +11,7 @@ html, body
 html
 	body
 		overflow-y: scroll
-		background: #ABB8C1
+		background: #f4f8fb
 
 body
 	position: relative
@@ -87,7 +87,9 @@ nav
 	margin-bottom: 10px
 
 #lenta
-	padding: 0 0 15px
+	margin: 0 0 15px
+	padding: 0
+	border: 1px solid #DDD
 	border-radius: 5px
 	overflow: hidden
 
@@ -96,6 +98,7 @@ nav
 
 	#new_tweet
 		padding: 10px
+		border-bottom: 1px solid #CCC
 		background: #eff6ee
 
 		@media (max-width: 767px)
@@ -114,10 +117,15 @@ nav
 	.tweet
 		padding: 10px
 		background: #FFF
-		border-top: 1px solid #CCC
+		border-bottom: 1px solid #CCC
+
+		&#no_tweets
+			p
+				padding-left: 0
 
 		&:last-child
 			border-radius: 0 0 5px 5px
+			border-bottom: none
 
 		p
 			padding-left: 60px
@@ -133,6 +141,7 @@ nav
 	padding: 10px
 	background: #FFF
 	border-radius: 5px
+	border: 1px solid #DDD
 	overflow: hidden
 
 .account
@@ -145,6 +154,22 @@ nav
 
 		img
 			border: 3px solid #5cb85c
+
+	.account_links
+		h3
+			a
+				font-size: 20px
+				color: #000
+
+		a
+			font-size: 14px
+			color: #000
+
+	.addition
+		margin-top: 5px
+
+		.new_relationship, .edit_relationship
+			padding: 0
 
 	h3
 		margin: 0
@@ -192,3 +217,32 @@ nav
 
 .new_relationship, .edit_relationship
 	padding-left: 60px
+
+#following
+	padding: 15px 0
+	background: #FFF
+	border: 1px solid #DDD
+	border-radius: 5px
+
+	.no_one
+		margin-left: 15px
+
+	.account
+		padding-top: 70px
+		border: 1px solid #DDD
+
+		.avatar
+			margin-top: -42px
+
+		.account_info
+			margin-top: 5px
+
+			h3
+				a
+					font-size: 20px
+					color: #000
+
+			p
+				a
+					font-size: 14px
+					color: #000

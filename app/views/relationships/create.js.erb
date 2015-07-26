@@ -1,1 +1,2 @@
 $('.user_block').html("<%= j render partial: 'twitter/users', object: @users, object: current_user %>");
+$('.account_user').html("<%= j render partial: 'twitter/current', object: @user, object: current_user %>");

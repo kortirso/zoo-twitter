@@ -6,6 +6,7 @@ class RelationshipsController < ApplicationController
 		current_user.follow!(@user)
 		current_user.update_attribute('followed_counter', current_user.followed_counter + 1)
 		@user.update_attribute('followers_counter', @user.followers_counter + 1)
+		@user = current_user
 		respond_to do |format|
 			format.js
 		end
@@ -16,6 +17,7 @@ class RelationshipsController < ApplicationController
 		current_user.unfollow!(@user)
 		current_user.update_attribute('followed_counter', current_user.followed_counter - 1)
 		@user.update_attribute('followers_counter', @user.followers_counter - 1)
+		@user = current_user
 		respond_to do |format|
 			format.js
 		end

@@ -5,11 +5,32 @@
 		.row
 			.col-xs-12.col-md-3
 				.box
-					= render 'twitter/current'
-				.visible-xs.visible-sm.box
+					- if @user == current_user
+						.account_user= render 'twitter/current'
+					- else
+						= render 'twitter/current'
+				.box
 					.user_block= render 'twitter/users'
-			.col-xs-12.col-md-6#following
+			.col-xs-12.col-md-9#following
+				- if @followers.length == 0
+					p.no_one= 'Вас никто не читает'
 				- @followers.each do |user|
-					= link_to user.username, account_path(user.username)
-			.col-xs-12.col-md-3.visible-md.visible-lg.box
-				.user_block= render 'twitter/users'
+					.box.col-xs-4
+						.account
+							.avatar
+								= image_tag 'avatar.jpg', class: 'img-responsive big_avatar_img', alt: 'avatar'
+							.account_links
+								- if user != current_user
+									- friends = Relationship.where(follower_id: current_user, followed_id: user).first
+									- if friends
+										= simple_form_for current_user.relationships.find_by(followed_id: user), html: { method: :delete }, remote: true do |f|
+											= f.button :submit, t('index.unfollow'), class: 'btn btn-sm btn-warning', disabled: 'disabled'
+									- else
+										= simple_form_for current_user.relationships.build(followed_id: user), remote: true do |f|
+											= f.hidden_field :followed_id
+											= f.button :submit, t('index.follow'), class: 'btn btn-sm btn-primary', disabled: 'disabled'
+								- else
+									= link_to 'Настройки', settings_path, class: 'btn btn-sm btn-default'
+							.account_info
+								h3= link_to user.username, account_path(user.username)
+								p= link_to "@#{user.username}", account_path(user.username)

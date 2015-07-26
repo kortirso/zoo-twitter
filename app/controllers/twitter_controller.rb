@@ -39,6 +39,10 @@ class TwitterController < ApplicationController
 		end
 	end
 
+	def settings
+
+	end
+
 	def locale
 		params[:name] == 'ru' ? session[:locale] = 'ru' : session[:locale] = 'en'
 		redirect_to tweets_path
