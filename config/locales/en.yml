@@ -32,3 +32,6 @@ en:
     main_users: 'The most tweeting individuals'
     follow: 'Follow'
     unfollow: 'Unfollow'
+    no_following: "You aren't following"
+    no_followers: "You don't have followers"
+    settings: 'Settings'

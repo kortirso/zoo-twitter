@@ -1,6 +1,7 @@
 class TwitterController < ApplicationController
 	before_action :get_users
 	before_action :get_access, except: :locale
+	after_action :get_url, except: :locale
 
 	def index
 		@user = User.find(current_user)
@@ -45,10 +46,14 @@ class TwitterController < ApplicationController
 
 	def locale
 		params[:name] == 'ru' ? session[:locale] = 'ru' : session[:locale] = 'en'
-		redirect_to tweets_path
+		redirect_to session[:url]
 	end
 
 	private
+		def get_url
+			session[:url] = request.original_url
+		end
+
 		def get_access
 			render template: 'twitter/welcome' unless current_user
 		end

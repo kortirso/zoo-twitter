@@ -32,3 +32,6 @@ ru:
     main_users: 'Самые твитящие особи'
     follow: 'Подписаться'
     unfollow: 'Отписаться'
+    no_following: 'Вы никого не читаете'
+    no_followers: 'Вас никто не читает'
+    settings: 'Настройки'

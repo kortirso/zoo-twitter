@@ -6,7 +6,7 @@
 		= link_to "@#{@user.username}", account_path(@user.username)
 	.addition
 		- if @user.id == current_user.id
-			- link_to 'Настройки', settings_path
+			- link_to t('index.settings'), settings_path, class: 'btn btn-sm btn-default'
 		- else
 			- friends = Relationship.where(follower_id: current_user, followed_id: @user).first
 			- if friends

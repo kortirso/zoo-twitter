@@ -13,7 +13,7 @@
 					.user_block= render 'twitter/users'
 			.col-xs-12.col-md-9#following
 				- if @followers.length == 0
-					p.no_one= 'Вас никто не читает'
+					p.no_one= t('index.followers')
 				- @followers.each do |user|
 					.box.col-xs-4
 						.account
@@ -30,7 +30,7 @@
 											= f.hidden_field :followed_id
 											= f.button :submit, t('index.follow'), class: 'btn btn-sm btn-primary', disabled: 'disabled'
 								- else
-									= link_to 'Настройки', settings_path, class: 'btn btn-sm btn-default'
+									= link_to t('index.settings'), settings_path, class: 'btn btn-sm btn-default'
 							.account_info
 								h3= link_to user.username, account_path(user.username)
 								p= link_to "@#{user.username}", account_path(user.username)
