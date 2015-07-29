@@ -72,8 +72,9 @@ RSpec.describe TwitterController, type: :controller do
 
 	describe 'GET #locale' do
 		it 'redirect to root' do
+			session[:url] = request.original_url
 			get :locale, name: 'ru'
-			expect(response).to redirect_to tweets_path
+			expect(response).to redirect_to session[:url]
 		end
 	end
 
