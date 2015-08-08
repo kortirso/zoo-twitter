@@ -17,7 +17,7 @@ gem 'devise'
 gem 'simple_form'
 gem 'carrierwave'
 gem 'rmagick'
-#gem 'pg_search'
+gem 'pg_search'
 gem 'http_accept_language'
 
 group :test do
