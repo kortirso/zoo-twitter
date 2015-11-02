@@ -19,6 +19,7 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'pg_search'
 gem 'http_accept_language'
+gem 'execjs'
 
 group :test do
 	gem 'rspec-rails'
