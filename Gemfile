@@ -20,6 +20,7 @@ gem 'rmagick'
 gem 'pg_search'
 gem 'http_accept_language'
 gem 'execjs'
+gem 'therubyracer'
 
 group :test do
 	gem 'rspec-rails'
