@@ -1,28 +1,28 @@
 .account
-	.avatar
-		= image_tag 'avatar.jpg', class: 'img-responsive big_avatar_img', alt: 'avatar'
-	.account_links
-		h3= link_to @user.username, account_path(@user.username)
-		= link_to "@#{@user.username}", account_path(@user.username)
-	.addition
-		- if @user.id == current_user.id
-			- link_to t('index.settings'), settings_path, class: 'btn btn-sm btn-default'
-		- else
-			- friends = Relationship.where(follower_id: current_user, followed_id: @user).first
-			- if friends
-				= simple_form_for current_user.relationships.find_by(followed_id: @user), html: { method: :delete }, remote: true do |f|
-					= f.button :submit, t('index.unfollow'), class: 'btn btn-sm btn-warning', disabled: 'disabled'
-			- else
-				= simple_form_for current_user.relationships.build(followed_id: @user.id), remote: true do |f|
-					= f.hidden_field :followed_id
-					= f.button :submit, t('index.follow'), class: 'btn btn-sm btn-primary', disabled: 'disabled'
-	.account_info
-		.tweet-count
-			p.count= link_to t('welcome.count'), account_path(@user.username)
-			p= @user.tweets_counter
-		.tweet-count
-			p.count= link_to t('welcome.followed'), following_path(@user.username)
-			p= @user.followed_counter
-		.tweet-count
-			p.count= link_to t('welcome.followers'), followers_path(@user.username)
-			p= @user.followers_counter
+    .avatar
+        = image_tag 'avatar.jpg', class: 'img-responsive big_avatar_img', alt: 'avatar'
+    .account_links
+        h3= link_to @user.username, account_path(@user.username)
+        = link_to "@#{@user.username}", account_path(@user.username)
+    .addition
+        - if @user.id == current_user.id
+            - link_to t('index.settings'), settings_path, class: 'btn btn-sm btn-default'
+        - else
+            - friends = Relationship.where(follower_id: current_user, followed_id: @user).first
+            - if friends
+                = simple_form_for current_user.relationships.find_by(followed_id: @user), html: { method: :delete }, remote: true do |f|
+                    = f.button :submit, t('index.unfollow'), class: 'btn btn-sm btn-warning', disabled: 'disabled'
+            - else
+                = simple_form_for current_user.relationships.build(followed_id: @user.id), remote: true do |f|
+                    = f.hidden_field :followed_id
+                    = f.button :submit, t('index.follow'), class: 'btn btn-sm btn-primary', disabled: 'disabled'
+    .account_info
+        .tweet-count
+            p.count= link_to t('welcome.count'), account_path(@user.username)
+            p= @user.tweets_counter
+        .tweet-count
+            p.count= link_to t('welcome.followed'), following_path(@user.username)
+            p= @user.followed_counter
+        .tweet-count
+            p.count= link_to t('welcome.followers'), followers_path(@user.username)
+            p= @user.followers_counter

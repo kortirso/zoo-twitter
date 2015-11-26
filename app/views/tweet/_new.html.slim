@@ -1,6 +1,6 @@
 .tweet
-	p
-		= image_tag 'avatar.jpg', class: 'img-responsive avatar_img', alt: 'avatar'
-		= @tweet.user.username
-		= link_to "@#{@tweet.user.username}", account_path(@tweet.user.username)
-	p= @tweet.text
+    p
+        = image_tag 'avatar.jpg', class: 'img-responsive avatar_img', alt: 'avatar'
+        = @tweet.user.username
+        = link_to "@#{@tweet.user.username}", account_path(@tweet.user.username)
+    p= @tweet.text

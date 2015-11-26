@@ -1,26 +1,26 @@
 - provide(:title, 'Account')
 = render 'layouts/menu'
 #inside
-	.container
-		.row
-			.col-xs-4.col-md-3
-				.box
-					- if @user == current_user
-						.account_user= render 'twitter/current'
-					- else
-						= render 'twitter/current'
-				.visible-xs.visible-sm.box
-					.user_block= render 'twitter/users'
-			.col-xs-8.col-md-6#lenta
-				- @tweets.each do |tweet|
-					.tweet
-						p
-							= image_tag 'avatar.jpg', class: 'img-responsive avatar_img', alt: 'avatar'
-							= tweet.user.username
-							= link_to "@#{tweet.user.username}", account_path(tweet.user.username)
-						p= tweet.text
-				- if @tweets.length == 0
-					.tweet#no_tweets
-						p= t('index.no_tweets')
-			.col-xs-4.col-md-3.visible-md.visible-lg.box
-				.user_block= render 'twitter/users'
+    .container
+        .row
+            .col-xs-4.col-md-3
+                .box
+                    - if @user == current_user
+                        .account_user= render 'twitter/current'
+                    - else
+                        = render 'twitter/current'
+                .visible-xs.visible-sm.box
+                    .user_block= render 'twitter/users'
+            .col-xs-8.col-md-6#lenta
+                - @tweets.each do |tweet|
+                    .tweet
+                        p
+                            = image_tag 'avatar.jpg', class: 'img-responsive avatar_img', alt: 'avatar'
+                            = tweet.user.username
+                            = link_to "@#{tweet.user.username}", account_path(tweet.user.username)
+                        p= tweet.text
+                - if @tweets.length == 0
+                    .tweet#no_tweets
+                        p= t('index.no_tweets')
+            .col-xs-4.col-md-3.visible-md.visible-lg.box
+                .user_block= render 'twitter/users'

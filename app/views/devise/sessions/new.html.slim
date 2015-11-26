@@ -1,16 +1,16 @@
 - provide(:title, 'Authorization')
 .inside
-	.shadow
+    .shadow
 .container
-	.col-xs-12.col-sm-4.col-sm-offset-8.block#login
-		= simple_form_for(User.new, as: :user, url: session_path(:user)) do |f|
-			.col-xs-12
-				p Ошибка авторизации, попробуйте еще раз
-			.col-xs-12
-				= f.input :username, autofocus: true, label: false
-			.col-xs-8
-				= f.input :password, autocomplete: 'off', label: false
-			.col-xs-4
-				= f.button :submit, 'Вход', class: 'btn btn-primary'
-			.col-xs-12
-				= f.input :remember_me, as: :boolean, label: 'Запомнить'
+    .col-xs-12.col-sm-4.col-sm-offset-8.block#login
+        = simple_form_for(User.new, as: :user, url: session_path(:user)) do |f|
+            .col-xs-12
+                p Ошибка авторизации, попробуйте еще раз
+            .col-xs-12
+                = f.input :username, autofocus: true, label: false
+            .col-xs-8
+                = f.input :password, autocomplete: 'off', label: false
+            .col-xs-4
+                = f.button :submit, 'Вход', class: 'btn btn-primary'
+            .col-xs-12
+                = f.input :remember_me, as: :boolean, label: 'Запомнить'

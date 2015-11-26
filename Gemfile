@@ -26,6 +26,9 @@ group :test do
     gem 'rspec-rails'
     gem 'factory_girl_rails'
     gem 'capybara'
+    gem 'database_cleaner'
+    gem 'capybara-webkit'
+    gem 'shoulda-matchers'
 end
 
 group :development, :test do

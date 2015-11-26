@@ -1,18 +1,18 @@
 - provide(:title, 'Registration')
 .inside
-	.shadow
+    .shadow
 .container
-	.col-xs-12.col-sm-4.col-sm-offset-8.block#signup
-		= simple_form_for(User.new, as: :user, url: registration_path(:user)) do |f|
-			.col-xs-12
-				p Ошибка регистрации, попробуйте еще раз
-			.col-xs-12
-				= f.input :username, required: true, autofocus: true, label: false, placeholder: 'Введите логин'
-			.col-xs-12
-				= f.input :email, required: true, label: false, placeholder: 'Введите электронную почту'
-			.col-xs-12
-				= f.input :password, required: true, label: false, placeholder: 'Введите пароль (минимум 8 символов)'
-			.col-xs-12
-				= f.input :password_confirmation, autocomplete: 'off', required: true, label: false, placeholder: 'Повторите пароль'
-			.col-xs-12.col-sm-5.col-sm-offset-7
-				=  f.button :submit, 'Регистрация', class: 'btn btn-primary'
+    .col-xs-12.col-sm-4.col-sm-offset-8.block#signup
+        = simple_form_for(User.new, as: :user, url: registration_path(:user)) do |f|
+            .col-xs-12
+                p Ошибка регистрации, попробуйте еще раз
+            .col-xs-12
+                = f.input :username, required: true, autofocus: true, label: false, placeholder: 'Введите логин'
+            .col-xs-12
+                = f.input :email, required: true, label: false, placeholder: 'Введите электронную почту'
+            .col-xs-12
+                = f.input :password, required: true, label: false, placeholder: 'Введите пароль (минимум 8 символов)'
+            .col-xs-12
+                = f.input :password_confirmation, autocomplete: 'off', required: true, label: false, placeholder: 'Повторите пароль'
+            .col-xs-12.col-sm-5.col-sm-offset-7
+                =  f.button :submit, 'Регистрация', class: 'btn btn-primary'
