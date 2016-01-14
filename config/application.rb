@@ -15,8 +15,6 @@ module ZooTwitter
 		# Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
 		# config.time_zone = 'Central Time (US & Canada)'
 
-		config.web_console.whiny_requests = false
-
 		I18n.available_locales = [:en, :ru]
 		config.i18n.default_locale = :en
 
