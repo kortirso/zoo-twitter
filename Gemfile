@@ -1,10 +1,11 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.5'
+gem 'rails', '4.2.5.1'
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
+gem 'therubyracer', platforms: :ruby
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
@@ -19,24 +20,23 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'pg_search'
 gem 'http_accept_language'
-gem 'execjs'
-gem 'therubyracer'
 
 group :development, :test do
     gem 'byebug'
-    gem 'web-console', '~> 2.0'
     gem 'spring', '1.3.6'
     gem 'rspec-rails'
     gem 'factory_girl_rails'
     gem 'capybara'
     gem 'database_cleaner'
     gem 'capybara-webkit'
+    gem 'shoulda-matchers'
 end
 
 group :development do
+    gem 'web-console', '~> 2.0'
     gem 'bullet'
-end
-
-group :test do
-    gem 'shoulda-matchers'
+    gem 'capistrano', require: false
+    gem 'capistrano-bundler', require: false
+    gem 'capistrano-rails', require: false
+    gem 'capistrano-rvm', require: false
 end
